@@ -34,6 +34,8 @@ requirements:
     - vc 14  # [win and py35]
 
 test:
+  source_files:
+    - graphs/* 
   commands:
     - graphchk  # [unix]
     - cmpfillin -h  # [unix]
