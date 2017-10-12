@@ -54,6 +54,12 @@ test:
     - if not exist "%LIBRARY_BIN%\\gpmetis.exe" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\m2gmetis.exe" exit 1  # [win]
     - if not exist "%LIBRARY_INC%\\metis.h" exit 1  # [win]
+  source_files:
+    - graphs/metis.mesh
+    - graphs/mdual.graph
+    - graphs/mdual.graph
+    - graphs/test.mgraph
+    - graphs/metis.mesh
 
 about:
   home: http://glaros.dtc.umn.edu/gkhome/metis/metis/overview
