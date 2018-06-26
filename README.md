@@ -19,14 +19,16 @@ schemes developed in our lab.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/metis-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/metis-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/metis-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/metis-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/metis-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/metis-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/metis-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/metis-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/metis-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/metis-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/metis-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/metis-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/metis/badges/version.svg)](https://anaconda.org/conda-forge/metis)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/metis/badges/downloads.svg)](https://anaconda.org/conda-forge/metis)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-metis-green.svg)](https://anaconda.org/conda-forge/metis) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/metis.svg)](https://anaconda.org/conda-forge/metis) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/metis.svg)](https://anaconda.org/conda-forge/metis) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/metis.svg)](https://anaconda.org/conda-forge/metis) |
 
 Installing metis
 ================
