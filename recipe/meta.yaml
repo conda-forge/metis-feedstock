@@ -13,13 +13,14 @@ source:
     - vc14.patch
 
 build:
-  number: 3
+  number: 1003
   binary_relocation: true
 
 requirements:
   build:
     - cmake
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   host:
   run:
 
@@ -65,3 +66,4 @@ about:
 extra:
   recipe-maintainers:
     - basnijholt
+    - SylvainCorlay
