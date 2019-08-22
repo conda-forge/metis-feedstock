@@ -22,8 +22,7 @@ source:
 # instead of `project(METIS)`.
 
 build:
-  number: 1003
-  binary_relocation: true
+  number: 1004
   ignore_run_exports:        # Cf comment above
     - {{ compiler('cxx') }}
 
@@ -56,8 +55,6 @@ test:
     - if not exist "%LIBRARY_BIN%\\gpmetis.exe" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\m2gmetis.exe" exit 1  # [win]
     - if not exist "%LIBRARY_INC%\\metis.h" exit 1  # [win]
-    - conda inspect linkages -p ${PREFIX} metis  # [not win]
-    - conda inspect objects -p ${PREFIX} metis  # [osx]
   source_files:
     - graphs
 
@@ -77,4 +74,5 @@ about:
 extra:
   recipe-maintainers:
     - basnijholt
+    - dalcinl
     - SylvainCorlay
