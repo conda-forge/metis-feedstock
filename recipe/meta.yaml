@@ -26,6 +26,8 @@ build:
   binary_relocation: true
   ignore_run_exports:        # Cf comment above
     - {{ compiler('cxx') }}
+  run_exports:
+    - {{ pin_subpackage('metis', max_pin='x.x') }}
 
 requirements:
   build:
