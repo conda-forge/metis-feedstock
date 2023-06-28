@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/KarypisLab/METIS/archive/{{ version }}.tar.gz
+  url: https://github.com/KarypisLab/METIS/archive/v{{ version }}.tar.gz
   sha256: 1a4665b2cd07edc2f734e30d7460afb19c1217c2547c2ac7bf6e1848d50aff7a
   patches:
     - vc14.patch
