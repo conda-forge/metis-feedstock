@@ -6,9 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/{{ name }}-{{ version }}.tar.gz
-  sha256: 76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2
+  git_url: https://github.com/KarypisLab/METIS/archive/refs/tags/v5.2.1.tar.gz
+  git_rev: v5.2.1
   patches:
     - vc14.patch
 
@@ -22,7 +21,7 @@ source:
 # instead of `project(METIS)`.
 
 build:
-  number: 1006
+  number: 1000
   binary_relocation: true
   ignore_run_exports:        # Cf comment above
     - libstdcxx-ng           # [linux]
