@@ -34,7 +34,9 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}  # Cf comment above
   host:
+    - gklib
   run:
+    - gklib
 
 test:
   commands:
