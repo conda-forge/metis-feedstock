@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/KarypisLab/METIS/archive/refs/tags/v5.2.1.tar.gz
+  git_url: https://github.com/KarypisLab/METIS.git
   git_rev: v5.2.1
   patches:
     - vc14.patch
