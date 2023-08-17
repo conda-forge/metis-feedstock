@@ -5,5 +5,5 @@ gpmetis graphs/test.mgraph 10
 m2gmetis graphs/metis.mesh 10
 
 # Regression test for https://github.com/KarypisLab/METIS/issues/69
-${CXX} -lmetis metis_test.cpp -o metis_test
+${CXX} -I$PREFIX/include -L$PREFIX/lib -lmetis metis_test.cpp -o metis_test
 ./metis_test
