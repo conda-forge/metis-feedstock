@@ -45,6 +45,11 @@ requirements:
   run:
 
 test:
+  files:
+    - metis_test.cpp
+  requires:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   commands:
     - graphchk  # [unix]
     - cmpfillin -h  # [unix]
