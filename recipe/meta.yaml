@@ -11,6 +11,7 @@ source:
     patches:
       - patches/0001.patch
       - patches/0002.patch
+      - patches/0003-fix-version-number.patch
 
   - url: https://github.com/KarypisLab/GKlib/archive/3eabb216ac97e11ce7e7a9b90f4c90778d9e7c18.zip
     sha256: e75693a69957445171843a767430db7270de57fa431a415cc3f8e9ed472700e3
@@ -32,7 +33,7 @@ build:
     - libstdcxx-ng           # [linux]
     - libcxx                 # [osx]
   run_exports:
-    - {{ pin_subpackage('metis', max_pin='x.x') }}
+    - {{ pin_subpackage('metis', max_pin='x.x.x') }}
   skip: true  # [win or ppc64le]
 
 requirements:
