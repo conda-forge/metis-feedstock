@@ -1,0 +1,22 @@
+From 3adf9c89a067203ba380b6687f5604407ddbbb4a Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Tue, 29 Aug 2023 10:39:34 +0200
+Subject: [PATCH] Update metis.h
+
+---
+ include/metis.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/metis.h b/include/metis.h
+index 5000d1b..7b15597 100644
+--- a/include/metis.h
++++ b/include/metis.h
+@@ -157,7 +157,7 @@ typedef __int64 int64_t;
+ /* Metis's version number */
+ #define METIS_VER_MAJOR         5
+ #define METIS_VER_MINOR         1
+-#define METIS_VER_SUBMINOR      0
++#define METIS_VER_SUBMINOR      1
+ 
+ /* The maximum length of the options[] array */
+ #define METIS_NOPTIONS          40
