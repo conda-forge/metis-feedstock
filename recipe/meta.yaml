@@ -27,7 +27,7 @@ source:
 # instead of `project(METIS)`.
 
 build:
-  number: 0
+  number: 1
   binary_relocation: true
   ignore_run_exports:        # Cf comment above
     - libstdcxx-ng           # [linux]
