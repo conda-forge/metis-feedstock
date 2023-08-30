@@ -1,20 +1,16 @@
 {% set name = "metis" %}
-{% set version = "5.1.1" %}
+{% set version = "5.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - url: https://github.com/KarypisLab/METIS/archive/v{{ version }}-DistDGL-v0.5.tar.gz
-    sha256: cedf0b32d32a8496bac7eb078b2b8260fb00ddb8d50c27e4082968a01bc33331
-    patches:
-      - patches/0001.patch
-      - patches/0002.patch
-
-  - url: https://github.com/KarypisLab/GKlib/archive/3eabb216ac97e11ce7e7a9b90f4c90778d9e7c18.zip
-    sha256: e75693a69957445171843a767430db7270de57fa431a415cc3f8e9ed472700e3
-    folder: GKlib
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/{{ name }}-{{ version }}.tar.gz
+  sha256: 76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2
+  patches:
+    - vc14.patch
 
 # While Metis is a pure C library, it is built with cmake, which assumes C++
 # by defaults and attempts to locate the C++ compiler. Hence the recipe has a
@@ -26,14 +22,13 @@ source:
 # instead of `project(METIS)`.
 
 build:
-  number: 0
+  number: 1007
   binary_relocation: true
   ignore_run_exports:        # Cf comment above
     - libstdcxx-ng           # [linux]
     - libcxx                 # [osx]
   run_exports:
-    - {{ pin_subpackage('metis', max_pin='x.x') }}
-  skip: true  # [win or ppc64le]
+    - {{ pin_subpackage('metis', max_pin='x.x.x') }}
 
 requirements:
   build:
@@ -71,9 +66,7 @@ test:
 about:
   home: http://glaros.dtc.umn.edu/gkhome/metis/metis/overview
   license: Apache-2.0
-  license_file: 
-    - LICENSE
-    - GKlib/LICENSE.txt
+  license_file: LICENSE.txt
   summary: 'METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering'
   description: |
     METIS is a set of serial programs for partitioning graphs, partitioning
