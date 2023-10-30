@@ -1,6 +1,10 @@
 setlocal EnableDelayedExpansion
 
+:: See https://github.com/KarypisLab/METIS/blob/v5.1.1-DistDGL-v0.5/vsgen.bat#L3
 MKDIR build\windows
+MKDIR build\xinclude
+COPY include\metis.h build\xinclude
+COPY include\CMakeLists.txt build\xinclude
 CD build\windows
 
 cmake ^
