@@ -27,14 +27,13 @@ source:
 # instead of `project(METIS)`.
 
 build:
-  number: 1
+  number: 2
   binary_relocation: true
   ignore_run_exports:        # Cf comment above
     - libstdcxx-ng           # [linux]
     - libcxx                 # [osx]
   run_exports:
     - {{ pin_subpackage('metis', max_pin='x.x.x') }}
-  skip: true  # [win or ppc64le]
 
 requirements:
   build:
