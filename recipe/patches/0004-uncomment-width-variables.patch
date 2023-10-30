@@ -1,0 +1,31 @@
+From 4d5c0b68a4661bdea746cb23bb66b6ab73cb9a7c Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Mon, 30 Oct 2023 22:50:11 +0100
+Subject: [PATCH] Uncomment width definitions
+
+---
+ include/metis.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/metis.h b/include/metis.h
+index 90f5163..fb945f8 100644
+--- a/include/metis.h
++++ b/include/metis.h
+@@ -30,7 +30,7 @@
+  GCC does provides these definitions in stdint.h, but it may require some
+  modifications on other architectures.
+ --------------------------------------------------------------------------*/
+-//#define IDXTYPEWIDTH 32
++#define IDXTYPEWIDTH 32
+ 
+ 
+ /*--------------------------------------------------------------------------
+@@ -40,7 +40,7 @@
+    32 : single precission floating point (float)
+    64 : double precission floating point (double)
+ --------------------------------------------------------------------------*/
+-//#define REALTYPEWIDTH 32
++#define REALTYPEWIDTH 32
+ 
+ 
+ 
