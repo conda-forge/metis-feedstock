@@ -10,7 +10,8 @@ mkdir static-libs
 pushd build
 
 cmake ${CMAKE_ARGS} \
-      -DCMAKE_PREFIX_PATH=../static-libs \
+      -DCMAKE_PREFIX_PATH=${PREFIX} \
+      -DCMAKE_INSTALL_PREFIX=../static-libs \
       -DDEBUG=OFF \
       -DOPENMP=set \
       -DBUILD_SHARED_LIBS=OFF \
