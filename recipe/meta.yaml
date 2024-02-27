@@ -25,7 +25,7 @@ source:
     sha256: e1d59de12336731e6dde8465f05de7b907fae5d72c921cffcde217a89eaab654
     folder: GKlib
     patches:
-      - patches/gklib-remove-march-flags.patch
+      - patches/gklib-remove-march-and-werror-flags.patch
 
 build:
   number: 0
