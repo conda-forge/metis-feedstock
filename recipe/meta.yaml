@@ -1,25 +1,31 @@
 {% set name = "metis" %}
 {% set version = "5.2.1" %}
+{% set gklib_tree_ish = "8bd6bad750b2b0d90800c632cf18e8ee93ad72d7" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/KarypisLab/METIS/archive/v{{ version }}.tar.gz
-  sha256: 1a4665b2cd07edc2f734e30d7460afb19c1217c2547c2ac7bf6e1848d50aff7a
-  patches:
-    - patches/0004-uncomment-width-variables.patch  # [win]
-    # See https://github.com/KarypisLab/METIS/issues/54:
-    - patches/getprocvmpeak.diff
-    # https://github.com/KarypisLab/METIS/pull/52
-    - patches/pr52.patch
-    # missing Windows conditionals
-    - patches/rusage-win32.patch
-    - patches/msvc-no-libm.patch
-    # remove -march=native, never appropriate on conda-forge,
-    # unavailable on ppc64le 
-    - patches/no-march-native.patch
+  - url: https://github.com/KarypisLab/METIS/archive/v{{ version }}.tar.gz
+    sha256: 1a4665b2cd07edc2f734e30d7460afb19c1217c2547c2ac7bf6e1848d50aff7a
+    patches:
+      - patches/0004-uncomment-width-variables.patch  # [win]
+      # See https://github.com/KarypisLab/METIS/issues/54:
+      - patches/getprocvmpeak.diff
+      # https://github.com/KarypisLab/METIS/pull/52
+      - patches/pr52.patch
+      # missing Windows conditionals
+      - patches/rusage-win32.patch
+      - patches/msvc-no-libm.patch
+      # remove -march=native, never appropriate on conda-forge,
+      # unavailable on ppc64le 
+      - patches/no-march-native.patch
+  - url: https://github.com/KarypisLab/GKlib/archive/{{ gklib_tree_ish }}.tar.gz
+    sha256: e1d59de12336731e6dde8465f05de7b907fae5d72c921cffcde217a89eaab654
+    folder: GKlib
+    patches:
+      - patches/gklib-remove-march-flags.patch
 
 build:
   number: 0
