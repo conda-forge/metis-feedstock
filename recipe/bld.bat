@@ -40,7 +40,7 @@ cmake ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_BUILD_TYPE=Release ^
-    -DGKLIB_PATH="../../GKlib/static-libs"
+    -DGKLIB_PATH="../../GKlib/static-libs" ^
     ..\..
 
 if errorlevel 1 exit 1 
