@@ -26,7 +26,7 @@ source:
     folder: GKlib
     patches:
       - patches/gklib-remove-march-and-werror-flags.patch
-      - patches/gklib-add-posix-source-define.patch
+      - patches/gklib-xopen-source.patch
 
 build:
   number: 0
