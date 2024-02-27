@@ -1,0 +1,25 @@
+From 1aba9e29060844302bc01ea2ac1accdd913bc534 Mon Sep 17 00:00:00 2001
+From: Klaus Zimmermann <klaus.zimmermann@quansight.com>
+Date: Tue, 27 Feb 2024 11:24:56 +0100
+Subject: [PATCH] Add posix source define
+
+---
+ GKlib.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/GKlib.h b/GKlib.h
+index 9278fe4..0e6b17d 100644
+--- a/GKlib.h
++++ b/GKlib.h
+@@ -10,6 +10,8 @@
+ #ifndef _GKLIB_H_
+ #define _GKLIB_H_ 1
+ 
++#define _POSIX_SOURCE 199309L
++
+ #define GKMSPACE
+ 
+ #if defined(_MSC_VER)
+-- 
+2.40.1
+
