@@ -28,6 +28,7 @@ source:
       - patches/gklib-remove-march-and-werror-flags.patch
       - patches/gklib-xopen-source.patch
       - patches/gklib-remove-test-with-embedded-assembler.patch
+      - patches/gklib-includes.patch
 
 build:
   number: 0
