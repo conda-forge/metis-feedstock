@@ -219,4 +219,5 @@ Feedstock Maintainers
 * [@basnijholt](https://github.com/basnijholt/)
 * [@matthiasdiener](https://github.com/matthiasdiener/)
 * [@mikemhenry](https://github.com/mikemhenry/)
+* [@zklaus](https://github.com/zklaus/)
 
