@@ -69,7 +69,9 @@ test:
 about:
   home: http://glaros.dtc.umn.edu/gkhome/metis/metis/overview
   license: Apache-2.0
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - GKlib/LICENSE.txt
   summary: 'METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering'
   description: |
     METIS is a set of serial programs for partitioning graphs, partitioning
