@@ -1,0 +1,25 @@
+From dd3c58320135e571451b53442e1494ce81b34c58 Mon Sep 17 00:00:00 2001
+From: Klaus Zimmermann <klaus.zimmermann@quansight.com>
+Date: Tue, 27 Feb 2024 11:24:56 +0100
+Subject: [PATCH] Add value for _XOPEN_SOURCE define
+
+---
+ string.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/string.c b/string.c
+index 4a3fb14..a13b688 100644
+--- a/string.c
++++ b/string.c
+@@ -14,7 +14,7 @@ of standard functions (but with enhanced functionality).
+ /************************************************************************/
+ 
+ /* the following is for strptime() */
+-#define _XOPEN_SOURCE
++#define _XOPEN_SOURCE 600
+ #include <time.h>
+ #undef _XOPEN_SOURCE
+ 
+-- 
+2.40.1
+

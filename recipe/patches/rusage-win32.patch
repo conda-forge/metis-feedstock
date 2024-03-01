@@ -1,0 +1,53 @@
+From c0abf24a5509e389baea4d6c4f7f65583ad7e69d Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Wed, 21 Feb 2024 12:50:44 +0100
+Subject: [PATCH] skip undefined rusage on Windows
+
+---
+ programs/gpmetis.c | 2 +-
+ programs/mpmetis.c | 2 +-
+ programs/ndmetis.c | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/programs/gpmetis.c b/programs/gpmetis.c
+index 4b7e0b5..ac01a41 100644
+--- a/programs/gpmetis.c
++++ b/programs/gpmetis.c
+@@ -239,7 +239,7 @@ void GPReportResults(params_t *params, graph_t *graph, idx_t *part, idx_t objval
+   printf("\nMemory Information ----------------------------------------------------------\n");
+   printf("  Max memory used:\t\t %7.3"PRREAL" MB\n", (real_t)(params->maxmemory/(1024.0*1024.0)));
+ 
+-#ifndef MACOS
++#if !(defined(MACOS) || defined(WIN32))
+   {
+     struct rusage usage;
+     getrusage(RUSAGE_SELF, &usage);
+diff --git a/programs/mpmetis.c b/programs/mpmetis.c
+index 04a6a1b..1d072d5 100644
+--- a/programs/mpmetis.c
++++ b/programs/mpmetis.c
+@@ -188,7 +188,7 @@ void MPReportResults(params_t *params, mesh_t *mesh, idx_t *epart, idx_t *npart,
+   printf("\nMemory Information ----------------------------------------------------------\n");
+   printf("  Max memory used:\t\t %7.3"PRREAL" MB\n", (real_t)(params->maxmemory/(1024.0*1024.0)));
+ 
+-#ifndef MACOS
++#if !(defined(MACOS) || defined(WIN32))
+   {
+     struct rusage usage;
+     getrusage(RUSAGE_SELF, &usage);
+diff --git a/programs/ndmetis.c b/programs/ndmetis.c
+index 5991f0c..3ecec18 100644
+--- a/programs/ndmetis.c
++++ b/programs/ndmetis.c
+@@ -172,7 +172,7 @@ void NDReportResults(params_t *params, graph_t *graph, idx_t *perm,
+   printf("\nMemory Information ----------------------------------------------------------\n");
+   printf("  Max memory used:\t\t %7.3"PRREAL" MB\n", (real_t)(params->maxmemory/(1024.0*1024.0)));
+ 
+-#ifndef MACOS
++#if !(defined(MACOS) || defined(WIN32))
+   {
+     struct rusage usage;
+     getrusage(RUSAGE_SELF, &usage);
+-- 
+2.42.0
+

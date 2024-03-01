@@ -1,0 +1,28 @@
+From e2252f317cf383ffaec94f4705fbb0365d72f0ad Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Wed, 21 Feb 2024 13:11:44 +0100
+Subject: [PATCH] no libm on MSVC
+
+---
+ programs/CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/programs/CMakeLists.txt b/programs/CMakeLists.txt
+index baf40ad..7498085 100644
+--- a/programs/CMakeLists.txt
++++ b/programs/CMakeLists.txt
+@@ -11,7 +11,10 @@ add_executable(cmpfillin cmpfillin.c io.c smbfactor.c)
+ 
+ # Link with the required libraries
+ foreach(prog gpmetis ndmetis mpmetis m2gmetis graphchk cmpfillin)
+-  target_link_libraries(${prog} metis GKlib m)
++  target_link_libraries(${prog} metis GKlib)
++  if(NOT MSVC)
++    target_link_libraries(${prog} m)
++  endif()
+ endforeach(prog)
+ 
+ if(METIS_INSTALL)
+-- 
+2.42.0
+

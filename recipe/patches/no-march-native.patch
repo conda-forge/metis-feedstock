@@ -1,0 +1,26 @@
+From 8a09aaf73ceab68050f8b2cdd10481a81b28768c Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Wed, 21 Feb 2024 13:40:19 +0100
+Subject: [PATCH] no march=native
+
+not appropriate on conda-forge, not available on ppc
+---
+ conf/gkbuild.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/conf/gkbuild.cmake b/conf/gkbuild.cmake
+index 0e70a8e..f61ffad 100644
+--- a/conf/gkbuild.cmake
++++ b/conf/gkbuild.cmake
+@@ -32,7 +32,7 @@ if(CMAKE_COMPILER_IS_GNUCC)
+ if(VALGRIND)
+   set(GK_COPTIONS "${GK_COPTIONS} -march=x86-64 -mtune=generic")
+ else()
+-  set(GK_COPTIONS "${GK_COPTIONS} -march=native")
++  # set(GK_COPTIONS "${GK_COPTIONS} -march=native")
+ endif(VALGRIND)
+   if(NOT MINGW)
+       set(GK_COPTIONS "${GK_COPTIONS} -fPIC")
+-- 
+2.42.0
+

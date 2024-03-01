@@ -1,0 +1,36 @@
+diff --git a/programs/gpmetis.c b/programs/gpmetis.c
+index 4b7e0b5..e6a49ef 100644
+--- a/programs/gpmetis.c
++++ b/programs/gpmetis.c
+@@ -245,7 +245,6 @@ void GPReportResults(params_t *params, graph_t *graph, idx_t *part, idx_t objval
+     getrusage(RUSAGE_SELF, &usage);
+     printf("  rusage.ru_maxrss:\t\t %7.3"PRREAL" MB\n", (real_t)(usage.ru_maxrss/(1024.0)));
+   }
+-  printf("  proc/self/stat/VmPeak:\t %7.3"PRREAL" MB\n", (real_t)gk_GetProcVmPeak()/(1024.0*1024.0));
+ #endif
+ 
+   printf("******************************************************************************\n");
+diff --git a/programs/mpmetis.c b/programs/mpmetis.c
+index 04a6a1b..117478f 100644
+--- a/programs/mpmetis.c
++++ b/programs/mpmetis.c
+@@ -194,7 +194,6 @@ void MPReportResults(params_t *params, mesh_t *mesh, idx_t *epart, idx_t *npart,
+     getrusage(RUSAGE_SELF, &usage);
+     printf("  rusage.ru_maxrss:\t\t %7.3"PRREAL" MB\n", (real_t)(usage.ru_maxrss/(1024.0)));
+   }
+-  printf("  proc/self/stat/VmPeak:\t %7.3"PRREAL" MB\n", (real_t)gk_GetProcVmPeak()/(1024.0*1024.0));
+ #endif
+ 
+   printf("******************************************************************************\n");
+diff --git a/programs/ndmetis.c b/programs/ndmetis.c
+index 5991f0c..22b06d8 100644
+--- a/programs/ndmetis.c
++++ b/programs/ndmetis.c
+@@ -178,7 +178,6 @@ void NDReportResults(params_t *params, graph_t *graph, idx_t *perm,
+     getrusage(RUSAGE_SELF, &usage);
+     printf("  rusage.ru_maxrss:\t\t %7.3"PRREAL" MB\n", (real_t)(usage.ru_maxrss/(1024.0)));
+   }
+-  printf("  proc/self/stat/VmPeak:\t %7.3"PRREAL" MB\n", (real_t)gk_GetProcVmPeak()/(1024.0*1024.0));
+ #endif
+ 
+   printf("******************************************************************************\n");

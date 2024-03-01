@@ -1,5 +1,33 @@
 setlocal EnableDelayedExpansion
 
+cd GKlib
+
+mkdir build
+mkdir static-libs
+
+cd build
+
+cmake -G "NMake Makefiles" ^
+      -DCMAKE_INSTALL_PREFIX:PATH="../static-libs" ^
+      -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
+      -DCMAKE_BUILD_TYPE=Release ^
+      -DDEBUG=OFF ^
+      -DOPENMP=set ^
+      -DBUILD_SHARED_LIBS=OFF ^
+      ..
+
+if errorlevel 1 exit 1
+
+cmake --build . --config Release
+if errorlevel 1 exit 1
+
+cmake --install .
+if errorlevel 1 exit 1
+
+cd ..
+cd ..
+
+
 :: See https://github.com/KarypisLab/METIS/blob/v5.1.1-DistDGL-v0.5/vsgen.bat#L3
 MKDIR build\windows
 MKDIR build\xinclude
@@ -8,10 +36,11 @@ COPY include\CMakeLists.txt build\xinclude
 CD build\windows
 
 cmake ^
-    -G "NMake Makefiles"                     ^
-    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  ^
-    -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX%     ^
-    -DCMAKE_BUILD_TYPE=Release               ^
+    -G "NMake Makefiles" ^
+    -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+    -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
+    -DCMAKE_BUILD_TYPE=Release ^
+    -DGKLIB_PATH="%SRC_DIR%/GKlib/static-libs" ^
     ..\..
 
 if errorlevel 1 exit 1 

@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9cd1b4b..1dee193 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -12,6 +12,7 @@ include_directories(".")
+ if(MSVC)
+   include_directories("win32")
+   file(GLOB win32_sources RELATIVE "win32" "*.c")
++  file(GLOB win32_headers "win32/*.h")
+ else(MSVC)
+   set(win32_sources, "")
+ endif(MSVC)
+@@ -29,3 +30,7 @@ install(TARGETS GKlib
+   ARCHIVE DESTINATION lib/${LINSTALL_PATH}
+   LIBRARY DESTINATION lib/${LINSTALL_PATH})
+ install(FILES ${GKlib_includes} DESTINATION include/${HINSTALL_PATH})
++
++if(MSVC)
++  install(FILES ${win32_headers} DESTINATION include/win32/${HINSTALL_PATH})
++endif()

@@ -1,0 +1,27 @@
+From 5031d4f48cf8c57ff0147e5927f51b7bf160c155 Mon Sep 17 00:00:00 2001
+From: Klaus Zimmermann <klaus.zimmermann@quansight.com>
+Date: Tue, 27 Feb 2024 16:14:15 +0100
+Subject: [PATCH] Remove test with embedded assembler
+
+---
+ test/CMakeLists.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 8584820..508a4a2 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -9,9 +9,8 @@ add_executable(grKx grKx.c)
+ add_executable(m2mnbrs m2mnbrs.c)
+ add_executable(cmpnbrs cmpnbrs.c)
+ add_executable(splatt2svd splatt2svd.c)
+-add_executable(gkuniq gkuniq.c)
+ 
+-foreach(prog strings gksort fis gkrw gkgraph csrcnv grKx m2mnbrs cmpnbrs splatt2svd gkuniq)
++foreach(prog strings gksort fis gkrw gkgraph csrcnv grKx m2mnbrs cmpnbrs splatt2svd)
+   target_link_libraries(${prog} GKlib)
+ endforeach(prog)
+ 
+-- 
+2.40.1
+
