@@ -43,6 +43,7 @@ requirements:
     - cmake <4.0
     - make
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
 
 test:
   commands:
