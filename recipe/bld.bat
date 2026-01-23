@@ -40,6 +40,8 @@ cmake ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_BUILD_TYPE=Release ^
+    -DSHARED=ON ^
+    -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON ^
     -DGKLIB_PATH="%SRC_DIR%/GKlib/static-libs" ^
     ..\..
 
@@ -52,6 +54,7 @@ cmake --build . --config Release
 if errorlevel 1 exit 1
 
 copy libmetis\metis.lib %LIBRARY_LIB%
+copy libmetis\metis.dll %LIBRARY_BIN%
 copy programs\cmpfillin.exe %LIBRARY_BIN%
 copy programs\gpmetis.exe %LIBRARY_BIN%
 copy programs\graphchk.exe %LIBRARY_BIN%
