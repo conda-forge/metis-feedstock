@@ -1,0 +1,36 @@
+From d4bf0544835af24ae8d6bd79084edca05c333887 Mon Sep 17 00:00:00 2001
+From: Olivier Roussel <olivier.roussel@inria.fr>
+Date: Fri, 23 Jan 2026 18:50:35 +0100
+Subject: [PATCH] fix libmetis install paths
+
+---
+ libmetis/CMakeLists.txt | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/libmetis/CMakeLists.txt b/libmetis/CMakeLists.txt
+index 758835f..3533205 100644
+--- a/libmetis/CMakeLists.txt
++++ b/libmetis/CMakeLists.txt
+@@ -12,8 +12,15 @@ if(SHARED)
+ endif()
+ 
+ if(METIS_INSTALL)
+-  install(TARGETS metis
+-    LIBRARY DESTINATION lib
+-    RUNTIME DESTINATION lib
+-    ARCHIVE DESTINATION lib)
++  if(WIN32)
++    install(TARGETS metis
++      LIBRARY DESTINATION bin
++      RUNTIME DESTINATION bin
++      ARCHIVE DESTINATION lib)
++  else()
++    install(TARGETS metis
++      LIBRARY DESTINATION lib
++      RUNTIME DESTINATION bin
++      ARCHIVE DESTINATION lib)
++  endif()
+ endif()
+-- 
+2.40.1.windows.1
+

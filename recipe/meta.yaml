@@ -21,6 +21,8 @@ source:
       # remove -march=native, never appropriate on conda-forge,
       # unavailable on ppc64le 
       - patches/no-march-native.patch
+      # fix libmetis installation paths
+      - patches/fix-libmetis-install-paths.patch
   - url: https://github.com/KarypisLab/GKlib/archive/{{ gklib_tree_ish }}.tar.gz
     sha256: e1d59de12336731e6dde8465f05de7b907fae5d72c921cffcde217a89eaab654
     folder: GKlib
@@ -31,16 +33,17 @@ source:
       - patches/gklib-includes.patch
 
 build:
-  number: 0
+  number: 1
   binary_relocation: true
   run_exports:
     - {{ pin_subpackage('metis', max_pin='x.x.x') }}
 
 requirements:
   build:
-    - cmake
+    - cmake <4.0
     - make
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
 
 test:
   commands:
