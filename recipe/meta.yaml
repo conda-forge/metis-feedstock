@@ -40,8 +40,9 @@ build:
 
 requirements:
   build:
-    - cmake <4.0
-    - make
+    - cmake <4.0  # [not (win and arm64)]
+    - cmake  # [win and arm64]
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
 
