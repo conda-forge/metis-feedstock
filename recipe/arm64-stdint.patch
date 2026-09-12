@@ -1,0 +1,18 @@
+--- a/GKlib/gk_arch.h
++++ b/GKlib/gk_arch.h
+@@ -32,8 +32,13 @@
+ 
+ 
+ #ifdef __MSC__ 
+-  #include "ms_stdint.h"
+-  #include "ms_inttypes.h"
++  #if defined(_M_ARM64)
++    #include <stdint.h>
++    #include <inttypes.h>
++  #else
++    #include "ms_stdint.h"
++    #include "ms_inttypes.h"
++  #endif
+   #include "ms_stat.h"
+ #else
+ #ifndef SUNOS

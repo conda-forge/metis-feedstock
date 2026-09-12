@@ -11,6 +11,7 @@ source:
   sha256: 76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2
   patches:
     - vc14.patch
+    - arm64-stdint.patch  # [win and arm64]
 
 # While Metis is a pure C library, it is built with cmake, which assumes C++
 # by defaults and attempts to locate the C++ compiler. Hence the recipe has a
@@ -22,7 +23,7 @@ source:
 # instead of `project(METIS)`.
 
 build:
-  number: 1007
+  number: 1008
   binary_relocation: true
   ignore_run_exports:        # Cf comment above
     - libstdcxx-ng           # [linux]
@@ -33,7 +34,7 @@ build:
 requirements:
   build:
     - cmake
-    - make
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}  # Cf comment above
     - {{ stdlib("c") }}
