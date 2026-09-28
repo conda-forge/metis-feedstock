@@ -1,3 +1,5 @@
+set "METIS_CMAKE_ARGS="
+if "%target_platform%"=="win-arm64" set "METIS_CMAKE_ARGS=-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 setlocal EnableDelayedExpansion
 
 cd GKlib
@@ -7,7 +9,7 @@ mkdir static-libs
 
 cd build
 
-cmake -G "NMake Makefiles" ^
+cmake -G "NMake Makefiles" %METIS_CMAKE_ARGS% ^
       -DCMAKE_INSTALL_PREFIX:PATH="../static-libs" ^
       -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
       -DCMAKE_BUILD_TYPE=Release ^
@@ -35,7 +37,7 @@ COPY include\metis.h build\xinclude
 COPY include\CMakeLists.txt build\xinclude
 CD build\windows
 
-cmake ^
+cmake %METIS_CMAKE_ARGS% ^
     -G "NMake Makefiles" ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^

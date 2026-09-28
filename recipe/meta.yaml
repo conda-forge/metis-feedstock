@@ -31,6 +31,7 @@ source:
       - patches/gklib-xopen-source.patch
       - patches/gklib-remove-test-with-embedded-assembler.patch
       - patches/gklib-includes.patch
+      - patches/gklib-arm64-stdint.patch  # [win and arm64]
 
 build:
   number: 2
@@ -40,8 +41,9 @@ build:
 
 requirements:
   build:
-    - cmake <4.0
-    - make
+    - cmake <4.0  # [not (win and arm64)]
+    - cmake  # [win and arm64]
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
 

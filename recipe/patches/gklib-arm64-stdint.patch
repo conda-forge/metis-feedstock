@@ -1,0 +1,18 @@
+--- a/gk_arch.h
++++ b/gk_arch.h
+@@ -32,8 +32,13 @@
+ 
+ 
+ #ifdef __MSC__ 
+-  #include "gk_ms_stdint.h"
+-  #include "gk_ms_inttypes.h"
++  #if defined(_M_ARM64)
++    #include <stdint.h>
++    #include <inttypes.h>
++  #else
++    #include "gk_ms_stdint.h"
++    #include "gk_ms_inttypes.h"
++  #endif
+   #include "gk_ms_stat.h"
+   #include "win32/adapt.h"
+ #else
